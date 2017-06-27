@@ -2,12 +2,18 @@
 
 atom-text-editor.editor {
     background-color: @app-background-color;
+    overflow: hidden;
     &:not(.mini) {
         .scroll-view {
             padding-left: 2em;
         }
     }
-    overflow: hidden;
+    &.is-focused {
+        border: 0;
+        z-index: 99999;
+        background-color: @app-background-color;
+        box-shadow: none !important;
+    }
 
     .placeholder-text {
         color: fade(white, 40%);
