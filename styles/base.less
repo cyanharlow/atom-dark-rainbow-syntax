@@ -8,8 +8,12 @@ atom-text-editor.editor {
             padding-left: 2em;
         }
     }
-    &.is-focused {
-        background-color: @app-background-color;
+
+    &.mini {
+        background-color: lighten(@app-background-color, 10%);
+        &.is-focused {
+            background-color: @app-background-color;
+        }
     }
 
     .placeholder-text {
