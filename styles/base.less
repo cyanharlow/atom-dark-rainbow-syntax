@@ -94,148 +94,155 @@ atom-text-editor.editor {
 }
 
 .gutter-container {
-    overflow: visible;
+    overflow: visible !important;
     position: relative;
 
-    .gutter {
-        overflow: visible;
-        background-color: @app-background-color;
+    > div {
+        overflow: visible !important;
+        .gutter {
+            overflow: visible !important;
+            background-color: @app-background-color;
 
-        .line-numbers {
-            > div {
-                background-color: @app-background-color !important;
-            }
-
-            .line-number {
-                font-family: 'Consolas';
-                border-left: 0;
-                border-right: 0;
-                padding-left: 8px;
-                padding-right: 5px;
-                opacity: 1;
-
-                &.git-line-added,
-                &.git-line-modified {
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        font-family: 'Octicons Regular';
-                        text-align: left;
-                        padding-left: 1px;
-                        z-index: -1;
-                        display: block;
-                        position: absolute;
-                        border-left: 3px solid;
-                        height: 100%;
-                        width: 3000px;
-                        left: 0;
-                        top: 0;
-                        pointer-events: none;
-                        border-color: inherit;
-                    }
+            &.line-numbers {
+                overflow: visible !important;
+                > div {
+                    overflow: visible !important;
+                    background-color: @app-background-color !important;
                 }
 
-                &.git-line-removed {
-                    &:before {
-                        display: none;
-                    }
-                    &:after {
-                        content: "";
-                        display: block;
-                        bottom: -3px;
-                        position: absolute;
-                        left: 0;
-                        width: 3000px;
-                        z-index: 9999;
-                        border-bottom: 1px dashed @red;
-                    }
-                }
+                .line-number {
+                    overflow: visible !important;
+                    font-family: 'Consolas';
+                    border-left: 0;
+                    border-right: 0;
+                    padding-left: 8px;
+                    padding-right: 5px;
+                    opacity: 1;
 
-                &.git-line-added {
-                    &:before {
-                        color: lighten(@green, 10%);
-                        background-color: darken(@green, 17%);
+                    &.git-line-added,
+                    &.git-line-modified {
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            font-family: 'Octicons Regular';
+                            text-align: left;
+                            padding-left: 1px;
+                            z-index: -1;
+                            display: block;
+                            position: absolute;
+                            border-left: 3px solid;
+                            height: 100%;
+                            width: 3000px;
+                            left: 0;
+                            top: 0;
+                            pointer-events: none;
+                            border-color: inherit;
+                        }
                     }
-                }
 
-                &.git-line-modified {
-                    &:before {
-                        color: lighten(@orange, 10%);
-                        background-color: darken(@orange, 33%);
+                    &.git-line-removed {
+                        &:before {
+                            display: none;
+                        }
+                        &:after {
+                            content: "";
+                            display: block;
+                            bottom: -3px;
+                            position: absolute;
+                            left: 0;
+                            width: 3000px;
+                            z-index: 9999;
+                            border-bottom: 1px dashed @red;
+                        }
                     }
-                }
 
-                &.cursor-line {
-                    background-color: transparent;
-                    &.cursor-line-no-selection {
+                    &.git-line-added {
+                        &:before {
+                            color: lighten(@green, 10%);
+                            background-color: darken(@green, 17%);
+                        }
+                    }
+
+                    &.git-line-modified {
+                        &:before {
+                            color: lighten(@orange, 10%);
+                            background-color: darken(@orange, 33%);
+                        }
+                    }
+
+                    &.cursor-line {
                         background-color: transparent;
-                        font-weight: bold;
-                    }
-                }
-
-                &:nth-of-type(n) {
-                    color: @red;
-                }
-
-                &:nth-of-type(6n-4) {
-                    color: @orange;
-                }
-
-                &:nth-of-type(6n-3) {
-                    color: @yellow;
-                }
-
-                &:nth-of-type(6n-2) {
-                    color: @green;
-                }
-
-                &:nth-of-type(6n-1) {
-                    color: @blue;
-                }
-
-                &:nth-of-type(6n) {
-                    color: lighten(@purple, 10%);
-                }
-
-                &.foldable {
-                    .icon-right {
-                        opacity: 0.3;
-                        visibility: visible;
+                        &.cursor-line-no-selection {
+                            background-color: transparent;
+                            font-weight: bold;
+                        }
                     }
 
-                    &.folded {
+                    &:nth-of-type(n) {
+                        color: @red;
+                    }
+
+                    &:nth-of-type(6n-4) {
+                        color: @orange;
+                    }
+
+                    &:nth-of-type(6n-3) {
+                        color: @yellow;
+                    }
+
+                    &:nth-of-type(6n-2) {
+                        color: @green;
+                    }
+
+                    &:nth-of-type(6n-1) {
+                        color: @blue;
+                    }
+
+                    &:nth-of-type(6n) {
+                        color: lighten(@purple, 10%);
+                    }
+
+                    &.foldable {
                         .icon-right {
-                            opacity: 1;
+                            opacity: 0.3;
+                            visibility: visible;
+                        }
 
-                            &:before {
-                                content: "\f05a";
+                        &.folded {
+                            .icon-right {
+                                opacity: 1;
+
+                                &:before {
+                                    content: "\f05a";
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        &.git-diff-icon {
-            .line-number {
-                padding-left: 19px !important;
-                &:before {
-                    position: absolute;
-                    display: block;
-                    border-color: transparent !important;
+            &.git-diff-icon {
+                .line-number {
+                    padding-left: 19px !important;
+                    &:before {
+                        position: absolute;
+                        display: block;
+                        border-color: transparent !important;
+                    }
                 }
-            }
-            .git-line-added {
-                &:before {
-                    content: "\f05d" !important;
+                .git-line-added {
+                    &:before {
+                        content: "\f05d" !important;
+                    }
                 }
-            }
 
-            .git-line-modified {
-                &:before {
-                    content: "\f052" !important;
+                .git-line-modified {
+                    &:before {
+                        content: "\f052" !important;
+                    }
                 }
             }
         }
     }
+
 }
