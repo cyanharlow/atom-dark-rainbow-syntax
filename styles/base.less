@@ -96,6 +96,7 @@ atom-text-editor.editor {
 .gutter-container {
     overflow: visible !important;
     position: relative;
+    z-index: auto !important;
 
     > div {
         overflow: visible !important;
@@ -105,7 +106,9 @@ atom-text-editor.editor {
 
             &.line-numbers {
                 overflow: visible !important;
+                contain: none !important;
                 > div {
+                    contain: none !important;
                     overflow: visible !important;
                     background-color: @app-background-color !important;
                 }
