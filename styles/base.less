@@ -3,11 +3,7 @@
 atom-text-editor.editor {
     background-color: @app-background-color;
     overflow: hidden;
-    &:not(.mini) {
-        .scroll-view {
-            padding-left: 2em;
-        }
-    }
+
 
     &.mini {
         background-color: lighten(@app-background-color, 10%);
@@ -207,7 +203,7 @@ atom-text-editor.editor {
 
                     &.foldable {
                         .icon-right {
-                            opacity: 0.3;
+                            opacity: 0.8;
                             visibility: visible;
                         }
 
